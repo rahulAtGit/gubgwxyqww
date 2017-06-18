@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+ <script> 
+var nikuRahul = [
+  ['q','w','e','r','t','y','u','i','o','p'],
+  ['a','s','d','f','g','h','j','k','l'],
+  ['z','x','c','v','b','n','m']
+];
+
+function reverse(s){
+    return s.split("").reverse().join("");
+}
+
+var reversed = [nikuRahul[0].reverse(),nikuRahul[1].reverse(),nikuRahul[2].reverse()];
+
+var key = 5;
+
+var nikuEncrypted = 'wo iqighjsij zrxio bq iqighjsij';
+
+var res = '';
+
+var findMyLovesSecret = function() {
+  for(var i1=0;i1<nikuEncrypted.length;i1++) {
+    var found = false;
+    reversed.forEach(function(value,index){
+      if(value.indexOf(nikuEncrypted[i1]) !== -1) {
+        res += value[(value.indexOf(nikuEncrypted[i1]) + key) % value.length];
+        found = true;
+      }
+    })
+    if(!found) {
+      res += nikuEncrypted[i1];
+    } 
+  }
+}
+
+
+
+findMyLovesSecret();
+
+document.write('Oyyyyyy: ');
+
+document.write(res);
+
+console.log(res);
+</script>
+</head>
+<body>
+</body>
+</html>
